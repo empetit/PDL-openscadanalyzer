@@ -55,15 +55,11 @@ OpenScadScripAnalyzer is an app runtime based on node.js. You can download thing
 
 10 Start mongoDB
 
-	$ sudo docker kill $(sudo docker ps -a -q)
-	$ sudo docker rm $(sudo docker ps -a -q)
-	$ sudo docker run --name db -d jiyoungparkkim/mongodb_base:0.1
+	$ sudo docker kill $(sudo docker ps -a -q) && sudo docker rm $(sudo docker ps -a -q) && sudo docker run --name db -d jiyoungparkkim/mongodb_base:0.1
 
 11 Get the ip adress of the mongoDB server
 
-	$ for i in $(sudo docker ps -q); do     
-  	$ 	ip=$(sudo docker inspect --format="{{ .NetworkSettings.IPAddress }}"" $i)
-	$ done ;
+	$ for i in $(sudo docker ps -q); do ip=$(sudo docker inspect --format="{{ .NetworkSettings.IPAddress }}"" $i) done ;
 
 10 Edit [openScadScriptAnalyzer/server/config/environment/developement.js]
 
